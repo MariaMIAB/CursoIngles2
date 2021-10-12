@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Rol;
 use Illuminate\Http\Request;
-use App\Models\User;
 
-class UserController extends Controller
+class RolController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,8 @@ class UserController extends Controller
      */
     public function index()
     {
-
-        $user = User::paginate();
-        return view('user.index', compact('user'));
+        $rol = Rol::orderBy('id','asc')->paginate();
+        return view('rol.index', compact('rol'));
     }
 
     /**
@@ -26,9 +25,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
-        $user = User::all();
-        return view('user.create',compact('user'));
+        $rol = Rol::all();
+        return view('rol.create', compact('rol'));
     }
 
     /**
@@ -39,13 +37,11 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $user = new User();
+        $rol = new Rol();
 
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = $request->password;
-        $user->save();
-        return redirect()->route('user.show',$user);
+        $rol->name = $request->name;
+        $rol->save();
+        return redirect()->route('rol.show',$rol);
     }
 
     /**
@@ -56,10 +52,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
-        $user = user::find($id);
-        
-        return view('user.show', compact('user'));;
+        $rol = Rol::find($id);
+        return view('rol.show', compact('rol'));
     }
 
     /**
@@ -68,9 +62,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(user $user)
+    public function edit($id)
     {
-        return view('user.edit', compact('user'));
+        $rol = Rol::find($id);
+        return view('rol.edit', compact('rol'));
     }
 
     /**
@@ -80,14 +75,11 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,user $user)
+    public function update(Request $request,rol $rol)
     {
-
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = $request->password;
-        $user->save();
-        return redirect()->route('user.show',$user);
+    $rol->name = $request->name;
+    $rol->save();
+    return redirect()->route('rol.show',$rol);
     }
 
     /**
