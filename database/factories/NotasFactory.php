@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Curso;
+use App\Models\Notas;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class CursoFactory extends Factory
+class NotasFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Curso::class;
+    protected $model = Notas::class;
 
     /**
      * Define the model's default state.
@@ -22,8 +22,10 @@ class CursoFactory extends Factory
     public function definition()
     {
         return [
-
-            
+            'nota1'=>$this->faker->numberBetween(1,100),
+            'nota2'=>$this->faker->numberBetween(1,100),
+            'nota3'=>$this->faker->numberBetween(1,100),
+            'notafinal'=>$this->faker->numberBetween(1,100),
         ];
     }
 }

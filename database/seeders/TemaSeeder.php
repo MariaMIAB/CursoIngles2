@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\Tema;
 use Illuminate\Database\Seeder;
-use App\Models\Usuario;
 
-class UsuarioSeeder extends Seeder
+class TemaSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,7 +14,6 @@ class UsuarioSeeder extends Seeder
      */
     public function run()
     {
-        //
-        usuario::factory(50)->create();
+        Tema::factory(50)->create();
     }
 }

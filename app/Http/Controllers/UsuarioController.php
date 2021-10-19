@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Usuario;
 
-class CursoController extends Controller
+class UsuarioController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,8 @@ class CursoController extends Controller
      */
     public function index()
     {
-        //
+        $usuario = Usuario::paginate();
+        return view('usuario.index', compact('usuario'));
     }
 
     /**
@@ -23,7 +25,8 @@ class CursoController extends Controller
      */
     public function create()
     {
-        //
+        $usuario = Usuario::all();
+        return view('usuario.create',compact('usuario'));
     }
 
     /**
@@ -34,7 +37,14 @@ class CursoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $usuario = new Usuario();
+
+        $usuario->name = $request->name;
+        $usuario->genero = $request->genero;
+        $usuario->curso = $request->curso;
+        $usuario->rol_id = $request->rol_id;
+        $usuario->save();
+        return redirect()->route('usuario.show',$usuario);
     }
 
     /**
@@ -45,7 +55,8 @@ class CursoController extends Controller
      */
     public function show($id)
     {
-        //
+        $usuario = usuario::find($id);
+        return view('usuario.show', compact('usuario'));;
     }
 
     /**
@@ -54,9 +65,10 @@ class CursoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Usuario $usuario)
     {
-        //
+        
+        return view('usuario.edit', compact('usuario'));
     }
 
     /**
@@ -66,9 +78,14 @@ class CursoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,Usuario $usuario)
     {
-        //
+        $usuario->name = $request->name;
+        $usuario->genero = $request->genero;
+        $usuario->curso = $request->curso;
+        $usuario->rol_id = $request->rol_id;
+        $usuario->save();
+        return redirect()->route('usuario.show',$usuario);
     }
 
     /**

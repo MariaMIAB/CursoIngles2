@@ -1,13 +1,15 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\CursosController;
+use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\CronogramaController;
 use App\Http\Controllers\ActividadController;
 use App\Http\Controllers\AsistenciaController;
 use App\Http\Controllers\EvaluacionController;
 use App\Http\Controllers\MateriaController;
 use App\Http\Controllers\RolController;
+use App\Http\Controllers\NotasController;
+use App\Http\Controllers\TemaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,30 +21,32 @@ use App\Http\Controllers\RolController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::resource('user', UserController::class);
-Route::get('user/{id}', [UserController::class, 'show'])->name('user.show');
-Route::get('user/{user}/edit', [UserController::class, 'edit'])->name('user.edit');
-Route::put('user/{user}',[UserController::class, 'update'])->name('user.update');
+Route::resource('usuario', UsuarioController::class);
+Route::get('usuario/{id}', [UsuarioController::class, 'show'])->name('usuario.show');
+Route::get('usuario/{usuario}/edit', [UsuarioController::class, 'edit'])->name('usuario.edit');
+Route::put('usuario/{usuario}',[UsuarioController::class, 'update'])->name('usuario.update');
+Route::resource('materia', MateriaController::class);
 Route::resource('rol', RolController::class);
 Route::get('rol/{id}', [RolController::class, 'show'])->name('rol.show');
 Route::get('rol/{rol}/edit', [RolController::class, 'edit'])->name('rol.edit');
 Route::put('rol/{rol}',[RolController::class, 'update'])->name('rol.update');
-Route::resource('actividadad', ActividadController::class);
-Route::resource('curso', CursosController::class);
-Route::get('curso/{id}', [CursosController::class, 'show'])->name('curso.show');
-Route::get('curso/{curso}/edit', [CursosController::class, 'edit'])->name('curso.edit');
-Route::put('curso/{curso}',[CursosController::class, 'update'])->name('curso.update');
+Route::resource('actividades', ActividadController::class);
+Route::resource('cronograma', CronogramaController::class);
+Route::get('cronograma/{id}', [CronogramaController::class, 'show'])->name('cronograma.show');
+Route::get('cronograma/{cronograma}/edit', [CronogramaController::class, 'edit'])->name('cronograma.edit');
+Route::put('cronograma/{cronograma}',[CronogramaController::class, 'update'])->name('cronograma.update');
 Route::resource('asistencia', AsistenciaController::class);
 Route::resource('evaluacion', EvaluacionController::class);
-Route::resource('materia', MateriaController::class);
-Route::get('materia/{materia}', [MateriaController::class, 'show'])->name('materia.show');
-Route::get('materia/{materia}/edit', [MateriaController::class, 'edit'])->name('materia.edit');
-Route::put('materia/{materia}',[MateriaController::class, 'update'])->name('materia.update');
+Route::resource('notas', NotasController::class);
+Route::resource('tema', TemaController::class);
+Route::get('tema/{id}', [TemaController::class, 'show'])->name('tema.show');
+Route::get('tema/{tema}/edit', [TemaController::class, 'edit'])->name('tema.edit');
+Route::put('tema/{tema}',[TemaController::class, 'update'])->name('tema.update');
+
+
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::resource('user', UserController::class);
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');

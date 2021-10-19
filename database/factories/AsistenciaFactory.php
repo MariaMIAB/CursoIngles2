@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Curso;
+use App\Models\Asistencia;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class CursoFactory extends Factory
+class AsistenciaFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Curso::class;
+    protected $model = Asistencia::class;
 
     /**
      * Define the model's default state.
@@ -22,8 +22,9 @@ class CursoFactory extends Factory
     public function definition()
     {
         return [
-
             
+        'estado'=> $this->faker->randomElement(['Presente','Retraso', 'Falta']),
+        'usuario_id'=> $this->faker->numberBetween(1,50),
         ];
     }
 }

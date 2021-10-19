@@ -15,6 +15,7 @@ class CreateCronogramasTable extends Migration
     {
         Schema::create('cronogramas', function (Blueprint $table) {
             $table->id();
+            $table->string('descripcion');
             $table->date('fechaini');
             $table->date('fechafin');
             $table->timestamps();

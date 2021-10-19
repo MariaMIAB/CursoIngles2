@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cronograma;
 use Illuminate\Http\Request;
-use App\Models\User;
 
-class UserController extends Controller
+class CronogramaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,8 @@ class UserController extends Controller
      */
     public function index()
     {
-
-        $user = User::paginate();
-        return view('user.index', compact('user'));
+        $cronograma = Cronograma::orderBy('id','asc')->paginate();
+        return view('cronograma.index', compact('cronograma'));
     }
 
     /**
@@ -26,9 +25,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
-        $user = User::all();
-        return view('user.create',compact('user'));
+        $cronograma = Cronograma::all();
+        return view('cronograma.create', compact('cronograma'));
     }
 
     /**
@@ -39,13 +37,13 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $user = new User();
+        $cronograma = new Cronograma();
 
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = $request->password;
-        $user->save();
-        return redirect()->route('user.show',$user);
+        $cronograma->descripcion = $request->descripcion;
+        $cronograma->fechaini = $request->fechaini;
+        $cronograma->fechafin = $request->fechafin;
+        $cronograma->save();
+        return redirect()->route('cronograma.show',$cronograma);
     }
 
     /**
@@ -56,10 +54,9 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
-        $user = user::find($id);
+        $cronograma = cronograma::find($id);
         
-        return view('user.show', compact('user'));;
+        return view('cronograma.show', compact('cronograma'));;
     }
 
     /**
@@ -68,9 +65,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(user $user)
+    public function edit(Cronograma $cronograma)
     {
-        return view('user.edit', compact('user'));
+        return view('cronograma.edit', compact('cronograma'));
     }
 
     /**
@@ -80,14 +77,14 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,user $user)
+    public function update(Request $request,Cronograma $cronograma)
     {
 
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = $request->password;
-        $user->save();
-        return redirect()->route('user.show',$user);
+        $cronograma->descripcion = $request->descripcion;
+        $cronograma->fechaini = $request->fechaini;
+        $cronograma->fechafin = $request->fechafin;
+        $cronograma->save();
+        return redirect()->route('cronograma.show',$cronograma);
     }
 
     /**

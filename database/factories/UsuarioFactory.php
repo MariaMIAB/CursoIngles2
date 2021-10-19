@@ -3,7 +3,11 @@
 namespace Database\Factories;
 
 use App\Models\Usuario;
+use App\Models\Team;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
+use Laravel\Jetstream\Features;
+
 
 class UsuarioFactory extends Factory
 {
@@ -19,10 +23,18 @@ class UsuarioFactory extends Factory
      *
      * @return array
      */
+
     public function definition()
     {
         return [
-            //
-        ];
+
+        'name'=> $this->faker->name(),
+        'genero'=> $this->faker->randomElement(['Masculino','Femenino']),
+        'curso'=> $this->faker->randomElement(['2do A','2do B']),
+        'rol_id'=> $this->faker->numberBetween(1,50),
+    ];
+       
     }
+  
+ 
 }
