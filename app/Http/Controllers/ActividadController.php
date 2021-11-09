@@ -94,8 +94,10 @@ class ActividadController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Actividades $actividades, $id)
     {
-        //
+        $actividades = Actividades::find($id);
+        $actividades->delete();
+        return redirect()->route('actividades.index');
     }
 }

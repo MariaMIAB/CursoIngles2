@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Notas;
+use App\Models\Rol;
 use Illuminate\Http\Request;
 
 class NotasController extends Controller
@@ -94,8 +95,10 @@ class NotasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Notas $notas, $id)
     {
-        //
+        $notas = Notas::find($id);
+        $notas->delete();
+        return redirect()->route('notas.index');
     }
 }

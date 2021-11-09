@@ -16,8 +16,8 @@ class CreateUsuarioMateriasTable extends Migration
         Schema::create('usuario__materias', function (Blueprint $table) {
             $table->unsignedBigInteger('usuario_id')->nullable();
             $table->unsignedBigInteger('materia_id');
-            $table->foreign('usuario_id')->references('id')->on('usuarios');
-            $table->foreign('materia_id')->references('id')->on('materias');
+            $table->foreign('usuario_id')->references('id')->on('usuarios')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('materia_id')->references('id')->on('materias')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

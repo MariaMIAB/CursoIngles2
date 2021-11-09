@@ -19,7 +19,7 @@ class CreateUsuariosTable extends Migration
             $table->string('genero');
             $table->string('curso');
             $table->unsignedBigInteger('rol_id');
-            $table->foreign('rol_id')->references('id')->on('rols');
+            $table->foreign('rol_id')->references('id')->on('rols')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

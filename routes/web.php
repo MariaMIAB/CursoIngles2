@@ -10,6 +10,7 @@ use App\Http\Controllers\MateriaController;
 use App\Http\Controllers\RolController;
 use App\Http\Controllers\NotasController;
 use App\Http\Controllers\TemaController;
+use App\Http\Controllers\ContactanosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,7 +43,7 @@ Route::resource('tema', TemaController::class);
 Route::get('tema/{id}', [TemaController::class, 'show'])->name('tema.show');
 Route::get('tema/{tema}/edit', [TemaController::class, 'edit'])->name('tema.edit');
 Route::put('tema/{tema}',[TemaController::class, 'update'])->name('tema.update');
-
+Route::resource('contactanos', ContactanosController::class);
 
 Route::get('/', function () {
     return view('welcome');

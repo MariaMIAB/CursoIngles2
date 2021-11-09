@@ -11,5 +11,14 @@
 </head>
 <body>
     @yield('content')
+    <style>
+ body{
+    margin: 2%;
+    padding: 2%;
+    background: url(/imagen/fondo1.jpg);
+    }
+    </style>
+   
+
 </body>
 </html>

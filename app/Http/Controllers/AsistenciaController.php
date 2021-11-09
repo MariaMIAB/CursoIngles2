@@ -94,8 +94,10 @@ class AsistenciaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Asistencia $asistencia, $id)
     {
-        //
+        $asistencia = Asistencia::find($id);
+        $asistencia->delete();
+        return redirect()->route('asistencia.index');
     }
 }

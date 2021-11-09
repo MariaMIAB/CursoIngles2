@@ -18,9 +18,9 @@ class CreateEvaluacionsTable extends Migration
             $table->string('name');
             $table->string('tipoexamen');
             $table->unsignedBigInteger('tema_id');
-            $table->foreign('tema_id')->references('id')->on('temas');
+            $table->foreign('tema_id')->references('id')->on('temas')->onDelete('cascade')->onUpdate('cascade');
             $table->unsignedBigInteger('nota_id');
-            $table->foreign('nota_id')->references('id')->on('notas');
+            $table->foreign('nota_id')->references('id')->on('notas')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

@@ -19,7 +19,7 @@ class CreateActividadesTable extends Migration
             $table->date('fechaini');
             $table->date('fechapresent');
             $table->unsignedBigInteger('tema_id');
-            $table->foreign('tema_id')->references('id')->on('temas');
+            $table->foreign('tema_id')->references('id')->on('temas')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

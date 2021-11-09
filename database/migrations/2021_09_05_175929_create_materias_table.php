@@ -17,7 +17,7 @@ class CreateMateriasTable extends Migration
             $table->id();
             $table->string('name');
             $table->unsignedBigInteger('cronograma_id');
-            $table->foreign('cronograma_id')->references('id')->on('cronogramas');
+            $table->foreign('cronograma_id')->references('id')->on('cronogramas')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

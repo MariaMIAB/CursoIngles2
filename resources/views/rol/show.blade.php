@@ -1,11 +1,19 @@
-@extends('layouts.layout')
-
-@section('title', 'Rol '. $rol->name)
-
+@extends('layouts.showLayout')
 @section('content')
-
-<h1>Bienvenido al rol {{$rol->id}} {{$rol->name}} </h1>
-<a href="{{route('rol.edit', $rol)}}">editar rol</a>
-<br>
-<a href="{{route('rol.index')}}">volver a los roles</a>
+<form id="eliminar" action="{{route('rol.destroy',$rol)}}" method="POST">
+    @csrf
+    @method('delete')
+</form>
+<div class="mt-4 prin">
+    <div class="card">
+        <div class="card-body sec">
+<h4>Este es el Rol {{$rol->name}} id:{{$rol->id}}</h4>
+<div class="botones mt-4">
+<a class="boton_personalizado " href="{{route('rol.edit', $rol)}}">Editar</a>
+<button class="boton_personalizado " form="eliminar" type="submit">Eliminar</button>
+<a class="boton_personalizado " href="{{route('rol.index')}}">Volver</a>
+</div>
+</div>
+</div>
+</div>
 @endsection
