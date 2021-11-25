@@ -11,6 +11,7 @@ use App\Http\Controllers\RolController;
 use App\Http\Controllers\NotasController;
 use App\Http\Controllers\TemaController;
 use App\Http\Controllers\ContactanosController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,7 @@ use App\Http\Controllers\ContactanosController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::resource('home', HomeController::class);
 Route::resource('usuario', UsuarioController::class);
 Route::get('usuario/{id}', [UsuarioController::class, 'show'])->name('usuario.show');
 Route::get('usuario/{usuario}/edit', [UsuarioController::class, 'edit'])->name('usuario.edit');
