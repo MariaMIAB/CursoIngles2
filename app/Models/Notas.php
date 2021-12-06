@@ -11,4 +11,7 @@ class Notas extends Model
     public function Evaluacion() {
         return $this->HasMani('App/Models/Evaluacion');
         }
+        public function Usuario() {
+            return $this->belongsTo('App/Models/Usuario');
+            }
 }

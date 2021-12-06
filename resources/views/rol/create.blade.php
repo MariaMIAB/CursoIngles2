@@ -1,32 +1,22 @@
-@extends('layouts.layout')
-
-@section('title', 'Rol')
-
+@extends('layouts.rglayout')
 @section('content')
-
-<h1><a class="block mt-1 text-lg leading-tight font-medium text-black hover:underline">Bienvenido a crear un rol</a></h1>
-<br>
-
-	</div>
 	<x-guest-layout>
-		<x-jet-authentication-card>
-			<x-slot name="logo">
-				<x-jet-authentication-card-logo />
-			</x-slot>
-	
+		<div class="card div-ex">
+			<div class="card-body">
+		<h1>Crear Rol</h1>
+		<x-jet-validation-errors class="mb-4" />
 			<form action="{{ route('rol.store') }}" method="POST">
 				@csrf
 	
-				<div>
-					<x-jet-label  value="{{ __('Name') }}" />
-					<x-jet-input class="block mt-1 w-full" type="text" name="name"  />
+				<div class="mt-4">
+					<x-jet-label for="name" value="{{ __('Nombre') }}" />
+					<x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
 				</div>
-				<br>
 					<x-jet-button class="ml-4">
-							<br>
 						{{ __('Registro') }}
 					</x-jet-button>
+					</form>
 				</div>
-			</form>
-		</x-jet-authentication-card>
+			</div>
 	</x-guest-layout>
+	@endsection

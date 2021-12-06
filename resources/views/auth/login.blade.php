@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css">
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
@@ -31,6 +33,7 @@
                     <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
                 </label>
             </div>
+            <a href="{{route('login.google')}}" class="btn btn-block btn-danger">Inicio de sesion con Google</a>
 
             <div class="flex items-center justify-end mt-4">
                 @if (Route::has('password.request'))

@@ -26,6 +26,7 @@ class NotasFactory extends Factory
             'nota2'=>$this->faker->numberBetween(1,100),
             'nota3'=>$this->faker->numberBetween(1,100),
             'notafinal'=>$this->faker->numberBetween(1,100),
+            'usuario_id'=>$this->faker->numberBetween(1,50),
         ];
     }
 }

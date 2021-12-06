@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Notas;
-use App\Models\Rol;
+use App\Models\Usuario;
 use Illuminate\Http\Request;
 
 class NotasController extends Controller
@@ -26,8 +26,9 @@ class NotasController extends Controller
      */
     public function create()
     {
+        $usuario = Usuario::all();
         $notas = Notas::all();
-        return view('notas.create',compact('notas'));
+        return view('notas.create',compact('notas'),compact('usuario'));
     }
 
     /**
@@ -42,7 +43,8 @@ class NotasController extends Controller
         $notas->nota1 = $request->nota1;
         $notas->nota2 = $request->nota2;
         $notas->nota3 = $request->nota3;
-        $notas->notafinal = $request->notafinal;
+        $notas->notafinal =($request->nota1 + $notas->nota2 + $request->nota3)/3;
+        $notas->usuario_id = $request->usuario_id;
         $notas->save();
         return redirect()->route('notas.show',$notas);
     }
@@ -55,8 +57,9 @@ class NotasController extends Controller
      */
     public function show($id)
     {
+    
         $notas = Notas::find($id);
-        return view('notas.show', compact('notas'));;
+        return view('notas.show', compact('notas'));
     }
 
     /**
@@ -85,6 +88,7 @@ class NotasController extends Controller
         $notas->nota2 = $request->nota2;
         $notas->nota3 = $request->nota3;
         $notas->notafinal = $request->notafinal;
+        $notas->usuario_id = $request->usuario_id;
         $notas->save();
         return redirect()->route('notas.show',$notas);
     }

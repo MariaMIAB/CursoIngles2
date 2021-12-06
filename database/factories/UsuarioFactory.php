@@ -29,9 +29,10 @@ class UsuarioFactory extends Factory
         return [
 
         'name'=> $this->faker->name(),
+        'email' => $this->faker->unique()->safeEmail(),
         'genero'=> $this->faker->randomElement(['Masculino','Femenino']),
         'curso'=> $this->faker->randomElement(['2do A','2do B']),
-        'rol_id'=> $this->faker->numberBetween(1,50),
+        'rol_id'=> $this->faker->numberBetween(1,2),
     ];
        
     }

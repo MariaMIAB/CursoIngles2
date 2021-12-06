@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\Rol;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class RolSeeder extends Seeder
 {
@@ -14,6 +14,17 @@ class RolSeeder extends Seeder
      */
     public function run()
     {
-        Rol::factory(50)->create();
+        DB::table('rols')->insert([
+            [
+                'name' => 'Profesor',
+                'descripcion' => 'Persona que tiene por oficio enseñar ',
+            ],
+            [
+                'name' => 'Estudiante',
+                'descripcion' => 'Persona que cursa estudios en un centro academico ',
+            ],
+
+
+        ]);
     }
 }

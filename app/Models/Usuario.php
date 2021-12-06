@@ -17,4 +17,7 @@ class Usuario extends Model
     public function Usuario_Materia() {
                 return $this->belongsTo('App/Models/Usuario_Maetria');
                 }
+                public function Notas() {
+                    return $this->HasMani('App/Models/Notas');
+                    }
 }

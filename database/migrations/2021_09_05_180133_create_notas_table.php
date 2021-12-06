@@ -19,6 +19,8 @@ class CreateNotasTable extends Migration
             $table->integer('nota2');
             $table->integer('nota3');
             $table->integer('notafinal');
+            $table->unsignedBigInteger('usuario_id');
+            $table->foreign('usuario_id')->references('id')->on('usuarios')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

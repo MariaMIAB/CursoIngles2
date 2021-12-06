@@ -5,12 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <header class="header">
-        <div class="container logo-nav-container">
-            <a href="#" class="logo">Logo</a>
+        <div>
        <nav class="navigation">
         <ul class="menu">
-    <li><a href="inicio">Home</a></li> 
-    <li><a href="acercade">aserca de</a></li>
+    <li><a href="home">Home</a></li> 
     <li><a href="{{route('contactanos.index')}}">contactanos</a></li>
     <li><a href="#">listas de Contenido</a>
      <ul class="submenu">
@@ -24,7 +22,7 @@
     </li>
     <li><a href="#">listas de Usuarios </a>
         <ul class="submenu">
-            <li><a href="user">usuarios</a></li>
+            <li><a href="usuario">usuarios</a></li>
             <li><a href="rol">roles</a></li>
             <li><a href="notas">notas</a></li>
             <li><a href="asistencia">asistencias</a></li> 
@@ -40,11 +38,9 @@
         div{
             padding: 15px;
         }
-        body{
-            padding: 15px;
-        }
+    
         .header{
-        background: #007bff;
+        background: #0c28a1;
         color: white;
         padding: 1rem 0;
         font-size: 20px;
@@ -63,7 +59,7 @@
         .submenu{
             position: absolute;
             display: inline-block;
-            background: black;
+            background: rgb(207, 42, 194);
             border: 5px solid rgb(21, 23, 121);
             border-radius:10px;
             width: 85%;
@@ -73,7 +69,6 @@
             transition: opacity 0.4s;
             z-index: 999;
         }
-         
         .submenu li a{
         display:block; 
         padding: 15px;
@@ -133,6 +128,70 @@
         text-transform: uppercase;
         text-rendering: optimizeLegibility;
           }
+          @import url(https://fonts.googleapis.com/css?family=Erica+One);
+/* BODY */
+body {
+    padding: 15px;
+            margin: 1rem;
+            padding: 1rem;
+            background: url(/imagen/fondo2.jpg);   
+
+  background-color: pink;
+ 
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  overflow: hidden;
+}
+::selection {
+  background: transparent;
+}
+
+h1 {
+  cursor: default;
+  position: absolute;
+  top: 30px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100px;
+  margin: auto;
+  display: block;
+  
+  -webkit-animation: bounce .3s ease infinite alternate;
+  
+  font-family: 'Erica One', cursive;
+  font-size: 80px;
+  color: #FFF;
+  text-align: center;
+  line-height: 100px;
+  text-shadow: 0 1px 0 #CCC,
+               0 2px 0 #CCC,
+               0 3px 0 #CCC,
+               0 4px 0 #CCC,
+               0 5px 0 #CCC,
+               0 6px 0 transparent,
+               0 7px 0 transparent,
+               0 8px 0 transparent,
+               0 9px 0 transparent,
+               0 10px 10px rgba(0, 0, 0, .6);
+}
+/* ANIMATION */
+@-webkit-keyframes bounce {
+  100% {
+    top: -30px;
+    
+    text-shadow: 0 1px 0 #CCC,
+                 0 2px 0 #CCC,
+                 0 3px 0 #CCC,
+                 0 4px 0 #CCC,
+                 0 5px 0 #CCC,
+                 0 6px 0 #CCC,
+                 0 7px 0 #CCC,
+                 0 8px 0 #CCC,
+                 0 9px 0 #CCC,
+                 0 30px 30px rgba(0, 0, 0, .3);
+  }
+}
     </style>
 </body>
 </html>

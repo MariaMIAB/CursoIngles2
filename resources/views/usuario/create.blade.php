@@ -1,31 +1,24 @@
-@extends('layouts.layout')
-
-@section('title', 'Usuarios')
-
+@extends('layouts.rglayout')
 @section('content')
-
-<h1><a class="block mt-1 text-lg leading-tight font-medium text-black hover:underline">Crear un nuevo usuarios</a></h1>
-<br>
-
-	</div>
 	<x-guest-layout>
-		<x-jet-authentication-card>
-			<x-slot name="logo">
-				<x-jet-authentication-card-logo />
-			</x-slot>
-	
+		<div class="card div-ex">
+			<div class="card-body">
+		<h1>Nuevo Usuario</h1>
 			<x-jet-validation-errors class="mb-4" />
-	
 			<form action="{{ route('usuario.store') }}" method="POST">
 				@csrf
 	
-				<div>
-					<x-jet-label for="name" value="{{ __('Name') }}" />
+				<div class="mt-4">
+					<x-jet-label for="name" value="{{ __('Nombre') }}" />
 					<x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+				</div>
+				<div class="mt-4">
+					<x-jet-label for="email" value="{{ __('Email') }}" />
+					<x-jet-input id="email" class="block mt-1 w-full" type="text" name="email" :value="old('email')" required autofocus autocomplete="email" />
 				</div>
 	
 				
-                <div>
+                <div class="mt-4">
 				<x-jet-label for="genero" value="{{ __('Genero') }}" />
                 <Select name="genero">
 					<option value="masculino"> Masculino </option>
@@ -33,39 +26,26 @@
 				</Select>
                 </div>
 				
-                <div>
+                <div class="mt-4">
 				<x-jet-label for="curso" value="{{ __('Curso') }}" />
                 <Select name="curso">
 					<option value="Curso 'B'"> Curso 'A' </option>
 					<option value="Curso 'A'"> Curso 'B'</option>
 				</Select>
                 </div>
-
-				<div>
+				<div class="mt-4">
+				<x-jet-label for="curso" value="{{ __('Rol') }}" />
 				<select name="rol_id">
-					<option value="1"> 1 </option>
-					<option value="2"> 2 </option>
-					<option value="3"> 3 </option>
-					<option value="4"> 4 </option>
-					<option value="5"> 5 </option>
-					<option value="6"> 6 </option>
-					<option value="7"> 7 </option>
-					<option value="8"> 8 </option>
-					<option value="9"> 9 </option>
-					<option value="10"> 10 </option>
-
+					@foreach($rol as $rols)
+						<option value={{$rols->id}}>{{$rols->name}}</option>	
+						@endforeach
 				</select>
 				</div>
-
-				<div class="mt-4">
-					<label for=""> Foto del usuario</label>
-					<input type="file" accept = "jpg, png, gif, jpeg" class="block mt-1 w-full" name="avatar">
-				</div>
-				
-					<x-jet-button class="ml-4">
+					<x-jet-button class="mt-4">
 						{{ __('Registro') }}
 					</x-jet-button>
-				</div>
 			</form>
-		</x-jet-authentication-card>
+		</div>
+	</div>
 	</x-guest-layout>
+@endsection

@@ -43,7 +43,7 @@
           padding: 4.8px;
         }
         button:hover{
-          color: #0016b0;
+          color: #163aaf;
         }
         .boton_personalizado{
         text-decoration: none;
@@ -57,9 +57,10 @@
         cursor: pointer;
         }
         body{
-        background: url(/imagen/fondo1.jpg);   
         margin: 2.5rem;
         padding: 2rem;
+        background: url(/imagen/fondo2.jpg);   
+        
         }
        .botones {
           text-align: center;

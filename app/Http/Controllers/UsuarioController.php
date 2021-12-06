@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Usuario;
+use App\Models\Rol;
 
 class UsuarioController extends Controller
 {
@@ -25,8 +26,9 @@ class UsuarioController extends Controller
      */
     public function create()
     {
+        $rol = Rol::all();
         $usuario = Usuario::all();
-        return view('usuario.create',compact('usuario'));
+        return view('usuario.create',compact('usuario'),compact('rol'));
     }
 
     /**
@@ -40,6 +42,7 @@ class UsuarioController extends Controller
         $usuario = new Usuario();
 
         $usuario->name = $request->name;
+        $usuario->email = $request->email;
         $usuario->genero = $request->genero;
         $usuario->curso = $request->curso;
         $usuario->rol_id = $request->rol_id;
@@ -67,8 +70,8 @@ class UsuarioController extends Controller
      */
     public function edit(Usuario $usuario)
     {
-        
-        return view('usuario.edit', compact('usuario'));
+        $rol = Rol::all();
+        return view('usuario.edit', compact('usuario'), compact('rol'));
     }
 
     /**
@@ -81,6 +84,7 @@ class UsuarioController extends Controller
     public function update(Request $request,Usuario $usuario)
     {
         $usuario->name = $request->name;
+        $usuario->email = $request->email;
         $usuario->genero = $request->genero;
         $usuario->curso = $request->curso;
         $usuario->rol_id = $request->rol_id;

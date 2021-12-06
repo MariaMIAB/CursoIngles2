@@ -12,6 +12,8 @@ use App\Http\Controllers\NotasController;
 use App\Http\Controllers\TemaController;
 use App\Http\Controllers\ContactanosController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SocialLoginController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +25,7 @@ use App\Http\Controllers\HomeController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::resource('home', HomeController::class);
+Route::resource('inicio', HomeController::class);
 Route::resource('usuario', UsuarioController::class);
 Route::get('usuario/{id}', [UsuarioController::class, 'show'])->name('usuario.show');
 Route::get('usuario/{usuario}/edit', [UsuarioController::class, 'edit'])->name('usuario.edit');
@@ -46,6 +48,10 @@ Route::get('tema/{id}', [TemaController::class, 'show'])->name('tema.show');
 Route::get('tema/{tema}/edit', [TemaController::class, 'edit'])->name('tema.edit');
 Route::put('tema/{tema}',[TemaController::class, 'update'])->name('tema.update');
 Route::resource('contactanos', ContactanosController::class);
+
+Route::get('login/google', [SocialLoginController::class, 'redirectToGoogle'])->name('login.google');
+Route::get('login/google/callback', [SocialLoginController::class, 'handleGoogleCallback']);
+
 
 Route::get('/', function () {
     return view('welcome');
