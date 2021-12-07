@@ -20,6 +20,7 @@ class SocialLoginController extends Controller
         if (!$user->exists) {
             $user->name = $googleUser->getName();
             $user->email = $googleUser->getEmail();
+            $user->google_id = $googleUser->getId();
             $user->save();
         }
 

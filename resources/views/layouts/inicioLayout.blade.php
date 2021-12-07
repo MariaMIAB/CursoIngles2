@@ -8,7 +8,7 @@
         <div>
        <nav class="navigation">
         <ul class="menu">
-    <li><a href="home">Home</a></li> 
+    <li><a href="inicio">Home</a></li> 
     <li><a href="{{route('contactanos.index')}}">contactanos</a></li>
     <li><a href="#">listas de Contenido</a>
      <ul class="submenu">
@@ -25,7 +25,8 @@
             <li><a href="usuario">usuarios</a></li>
             <li><a href="rol">roles</a></li>
             <li><a href="notas">notas</a></li>
-            <li><a href="asistencia">asistencias</a></li> 
+            <li><a href="asistencia">asistencias</a></li>
+            <li><a href="user">user</a></li>
         </ul>
        </li>
      </ul>

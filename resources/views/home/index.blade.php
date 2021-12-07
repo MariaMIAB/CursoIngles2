@@ -1,2 +1,2 @@
 @extends('layouts.iniciolayout')
-<h1>Curso Ingles</h1>
+<h1>Materia de Ingles</h1>

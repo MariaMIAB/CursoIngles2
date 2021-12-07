@@ -16,19 +16,18 @@
     </head>
     <body>
         <style>
-          .prin{
-            margin: 10rem;
-            padding: 10rem;
-            border: 6px solid rgb(87, 187, 233);
-            border-radius: 10px;
-          }
+         
           .sec{
-            margin: 1rem;
-            padding: 1rem;
+            margin: 2rem;
+            padding: 2rem;
+            border: 6px solid rgb(179, 29, 116);
+            border-radius: 12px;
+            margin-left: 15rem;
+            margin-right: 15rem;
           }
           p{
           text-align: center;
-          color: #1883ba;
+          color: #4b6421;
           font-weight: normal;
           font-size: 24px;
           font-family: Arial;
@@ -51,7 +50,7 @@
         font-weight: 650;
         font-size: large;
         color: #ffffff;
-        background-color: #1883ba;
+        background-color: #db44db;
         border-radius: 6px;
         border: 2px solid #0016b0;
         cursor: pointer;
