@@ -13,6 +13,10 @@
 					<x-jet-label for="name" value="{{ __('Nombre') }}" />
 					<x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" value="{{$user->name}}"/>
 				</div>
+				<div class="ml-4">
+					<x-jet-label for="email" value="{{ __('Email') }}" />
+					<x-jet-input id="email" class="block mt-1 w-full" type="text" name="email" value="{{$user->email}}"/>
+				</div>
 					<x-jet-button class="ml-4">
 						{{ __('Actulizar registro') }}
 					</x-jet-button>
